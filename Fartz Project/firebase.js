@@ -9,7 +9,7 @@ import {
   deleteDoc,
   doc,
   getDoc,
-  updateDoc
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -43,6 +43,7 @@ export const onGetTasks = (callback) =>
 
 export const deleteTask = (id) => deleteDoc(doc(db, "tasks", id));
 
-export const getTask = id => getDoc(doc(db,"tasks", id));
+export const getTask = (id) => getDoc(doc(db, "tasks", id));
 
-export const updateTask =(id, newFields) => updateDoc(doc(db,'tasks',id),newFields)
+export const updateTask = (id, newFields) =>
+  updateDoc(doc(db, "tasks", id), newFields);
