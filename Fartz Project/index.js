@@ -1,5 +1,5 @@
 //This will manipulates the information added by user
-import { saveTask, getTasks, onSnapshot, collection, db } from "./firebase.js";
+import { saveTask, getTasks, onGetTasks} from './firebase.js'
 
 const taskForm = document.getElementById('task-form')
 const tasksContainer = document.getElementById('tasks-container')
@@ -9,9 +9,10 @@ const tasksContainer = document.getElementById('tasks-container')
 window.addEventListener('DOMContentLoaded', async () => {
     //const querySnapshot = await getTasks()
 
-    onSnapshot(collection(db, "tasks"), (querySnapshot) => {
-        let html = "";
-        querySnapshot.forEach(doc => {
+    onGetTasks((querySnapshot) => {
+        let html = '';
+        
+        querySnapshot.forEach((doc) => {
             const task = doc.data()
             html += `
             <div>

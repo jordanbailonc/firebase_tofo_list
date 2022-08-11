@@ -30,10 +30,5 @@ export const saveTask = (title, description)=>
 //with name: 'tasks' from firebase
 export const getTasks = () => getDocs(collection(db,'tasks'))
 
-export const onGetTasks =()=> console.log('on Get Task')
+export const onGetTasks =(callback)=> onSnapshot(collection(db,'tasks'),callback)
 
-export{
-    onSnapshot,
-    collection,
-    db
-}
